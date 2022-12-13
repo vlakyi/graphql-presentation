@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""License model"""
+type License {
+  id: ID!
+  licenseNo: String!
+  cars: [Car!]!
+}
+
+"""Car model"""
+type Car {
+  id: ID!
+
+  """car name"""
+  name: String!
+  brand: String!
+  licenses: [License!]!
+}
+
+type Query {
+  cars: [Car!]!
+  car(id: ID!): Car!
+}
+
+type Mutation {
+  createCar(createCarInput: CreateCarInput!): Car!
+  updateCar(id: Float!, updateCarInput: UpdateCarInput!): Car!
+  removeCar(id: Float!): Car!
+}
+
+"""Create car input object type."""
+input CreateCarInput {
+  """A new car name"""
+  name: String!
+  brand: String!
+  licenses: [String!]!
+}
+
+input UpdateCarInput {
+  """A new car name"""
+  name: String
+  brand: String
+  licenses: [String!]
+}
